@@ -1,0 +1,29 @@
+1. Modular Programming :
+	* Modular programming is used to break a large program into smaller independent modules.
+	* In other words in modular programming we have to separate modules with some logic according to the given concept.
+
+2. Object Oriented Programming :
+	* Object is real word entity - Oriented Programming is methodology to design a program using class and objects.
+	* (i.e)., It is a programming language which helps us to represent real word entity along with all it's properties and functionalities.
+	* Example : Keyboard --> its attributes are used to type the needed content by the user and it is having alphabets, symbols, numbers, and some 
+			       technical keys.... etc.,
+
+3. Access Specifier :
+	* Access specifiers are used to determine whether a field, method in class can be used or invoked by another method in another class.
+	* They are also known as visiblity specifiers.
+	* They regulate access to fields, methods, classes in Java.
+	* Access specifiers can be used to restrict access in java.
+	Four Types -->  * Public : class, methods, fields are declared in any class.
+		        * Private : Access within the same class.
+		        * Protected : Access only by the sub class in other packages .
+		        * Default : No specifiers . Don't set access specifiers for element.
+
+4. Static and It's requirement : 
+	* Static is used  for memory management mainly.
+	* We can apply static keywords with variable, methods, blocks and nested class.
+	* It's main requirement is, it makes program memory efficient (i.e)., saves the memory of the program.
+
+5. Array: 
+	* Collection of similar data types.
+	* It is an object that holds values of same type.
+	* It is also known as static data structure. Because size of an array must be specified at time of its declaration.
