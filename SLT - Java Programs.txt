@@ -1,0 +1,569 @@
+1. Write a program using array to accept 10 numbers and display the numbers in ascending order.
+--Program :
+
+import java.util.Scanner;
+public class Ascend 
+{
+int[] numbers;
+private int min;
+public void accept()
+{
+numbers = new int[10];
+Scanner input;
+System.out.println("Enter the Integers");					
+for(int i = 0 ; i <= 9 ; i++)
+{
+input = new Scanner(System.in);
+numbers[i]= input.nextInt();
+}
+}
+public void execute()
+{
+for(int i = 0; i<10 ; i++)
+{								
+for(int j = 0 ; j < 9 ; j++)
+{
+if (numbers [j] > numbers [j+1])
+{
+min = numbers [j];
+numbers [j] = numbers [j+1];
+numbers [j+1] = min;
+}
+}
+}
+}	
+public void print()
+{
+for(int i = 0; i < 10 ; i++)
+{
+System.out.println(" "+numbers [i]);
+}
+}
+public static void main(String[] args)
+{
+Ascend object = new Ascend();
+object.accept();
+object.execute();
+object.print();
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Write a program to accept 10 numbers using array and display the sum and average of 10 numbers.
+--Program :
+
+import java.util.Scanner;
+public class Sum_Avg 
+{
+int[] numbers;
+int sum=0;
+int average=0;
+public void accept()
+{
+numbers = new int[10];
+Scanner input;
+System.out.println("Enter the numbers");
+						
+for(int i = 0 ; i <= 9 ; i++)
+{
+input = new Scanner(System.in);
+numbers[i]= input.nextInt();
+}
+}
+		
+public void execute()
+{
+for(int i = 0; i<10 ; i++)
+{
+sum = sum+ numbers[i];	
+}
+average = sum/numbers.length;
+}
+		
+public void print()
+{
+System.out.println("The sum of the given numbers are : "+sum);
+System.out.println("The average of the given numbers are : "+average);
+}
+
+public static void main(String[] args) 
+{
+Sum_Avg obj = new Sum_Avg();
+obj.accept();
+obj.execute();
+obj.print();
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Write a program to accept mark of 10 students using array and display the name of the highest scorer.
+--Program :
+
+import java.util.Scanner;
+public class High_Scorer
+{
+String[][] database = new String[2][10];
+int[] array = new int[10];
+public int temp = 0;
+public int highest = 0;
+public void acceptStudName()
+{
+Scanner input;
+System.out.println("Enter the names of the students : ");	
+for(int i = 0 ; i <= 9 ; i++)
+{
+input = new Scanner(System.in);
+database[0][i]= input.next();
+}
+}
+public void acceptStudMark()
+{
+Scanner input;
+System.out.println("Enter the marks of the students in the same order of previously given names : ");	
+for(int i = 0 ; i <= 9 ; i++)
+{
+input = new Scanner(System.in);
+database[1][i]= input.next();
+array[i] = Integer.parseInt(database[1][i]);
+}
+}
+public void higestMark()
+{	
+for(int i = 0; i <= 9 ; i++)
+{
+if(array[i] > highest)
+{  
+temp = i;
+highest = array [i];
+}				
+}
+}	
+public void topper()
+{
+System.out.println(database[0][temp]+" scored the highest mark ");
+System.out.println("His mark was "+database[1][temp]);
+}
+public static void main(String[] args) 
+{
+High_Scorer obj = new High_Scorer();
+obj.acceptStudName();
+obj.acceptStudMark();
+obj.higestMark();
+obj.topper();
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Write a java program to accept name and salary of 5 employee 
+    (1) Display employee of highest salary.
+    (2) Display employee lowest paid.
+    (3) Display average salary of employee.
+--Program :
+
+import java.util.Scanner;
+public class Salary_Details
+{
+String[][] database = new String[2][10];
+int[] array = new int[10];
+int temp = 0;
+int temp1 = 0;
+int highestSal = 0;
+int lowestSal = 0;
+public void acceptEmpName()
+{
+Scanner input;
+System.out.println("Enter the names of the employees");	
+for(int i = 0 ; i <= 9 ; i++)
+{
+input = new Scanner(System.in);
+database[0][i]= input.next();
+}
+}
+public void acceptEmpSal()
+{
+Scanner input;
+System.out.println("Enter the salaries of the employees in the same order as names you entered before : ");	
+for(int i = 0 ; i <= 9 ; i++)
+{
+input = new Scanner(System.in);
+database[1][i]= input.next();
+array[i] = Integer.parseInt(database[1][i]);
+}
+}
+public void highestSal()
+{	
+for(int i = 0; i <= 9 ; i++)
+{
+if(array[i] > highestSal)
+{  
+temp = i;
+highestSal = array [i];
+}				
+}
+}	
+public void lowestSal()
+{	
+for(int i = 0; i <= 9 ; i++)
+{
+if(array[i] < highestSal)
+{  
+temp1 = i;
+lowestSal = array [i];
+}				
+}
+}
+public void AvgSal()
+{
+System.out.println(database[0][temp]+" gets the highest salary");
+System.out.println("His salary is "+database[1][temp]);
+System.out.println(" ");
+System.out.println(database[0][temp1]+" gets the lowest salary");
+System.out.println("His salary is "+database[1][temp1]);		
+}
+public static void main(String[] args) 
+{
+Salary_Details obj = new Salary_Details();
+obj.acceptEmpName();
+obj.acceptEmpSal();
+obj.highestSal();
+obj.AvgSal();
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Write a java program to display matrix of 3 rows and 3 columns.
+--Program :
+
+import java.util.Scanner;
+public class MatrixDisplay
+{
+int i,j;
+System.out.println("Enter the number of rows and columns : ");
+Scanner s = new Scanner(System.in);
+int row = s.nextInt();
+int column = s.nextInt();
+public int[][] matrix1 = new int[3][3];
+public int[][] matrix2 = new int[3][3];	
+public void accept()
+{
+Scanner input;
+System.out.println("Enter the elements for the first matrix:");	
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+input = new Scanner(System.in);
+matrix1[i][j]= input.nextInt();
+}
+}			
+System.out.println("Enter the elements for the second matrix:");	
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+input = new Scanner(System.in);
+matrix2[i][j]= input.nextInt();
+}
+}
+}	
+public void display()
+{
+System.out.println("the first matrix:");	
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+System.out.println(matrix1[i][j]+" ");
+}
+System.out.println();
+}			
+System.out.println("the second matrix:");	
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+System.out.println(matrix2[i][j]);
+}
+System.out.println(" ");
+}
+}	
+public static void main(String[] args) 
+{
+MatrixDisplay obj = new MatrixDisplay();
+obj.accept();
+obj.display();
+}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. Write a java program to add 2 matrics of 3 rows and 3 columns.
+--Program :
+
+import java.util.Scanner;
+public class Matrix_Add
+{
+int i,j;
+Scanner s = new Scanner(System.in);
+int row = s.nextInt();
+int column = s.nextInt();
+public int[][] matrixAdd = new int[3][3];
+public int[][] matrix1 = new int[3][3];
+public int[][] matrix2 = new int[3][3];	
+public void addaccept()
+{
+Scanner input;
+System.out.println("Enter the elements for the first matrix:");
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+input = new Scanner(System.in);
+matrix1[i][j]= input.nextInt();
+}
+System.out.println("Enter the elements for the second matrix:");
+matrixAdd[i][j] = matrix1[i][j] + matrix2[i][j];
+}
+}
+public void addDisplay()
+{
+System.out.println("the sum of the matrices:");	
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+System.out.println(matrixAdd[i][j]+"\t");
+}
+System.out.println(" ");
+}
+}	
+public static void main(String[] args)
+{
+Matrix_Add obj = new Matrix_Add();
+//obj.display();
+obj.addaccept();
+obj.addDisplay();
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. Write a java program to do product of 2 matrix of 3 rows and 3 columns.
+--Program :
+
+import java.util.Scanner;
+public class MatrixMul 
+{
+int i,j;
+Scanner s = new Scanner(System.in);
+int row = s.nextInt();
+int column = s.nextInt();
+public int[][] matrix1 = new int[3][3];
+public int[][] matrix2 = new int[3][3];	
+public int[][] MatrixMul = new int[3][3];
+public void MulMat()
+{
+Scanner input;
+System.out.println("Enter the elements for the first matrix:");
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+input = new Scanner(System.in);
+matrix1[i][j]= input.nextInt();
+}
+System.out.println("Enter the elements for the second matrix:");
+MatrixMul[i][j] = MatrixMul[i][j] + (matrix1[i][k] * matrix2[k][j]);		
+}
+}
+public void MulDisplay()
+{
+Scanner input;
+System.out.println("the product of the matrices:");	
+for(int i = 0 ; i <= 2 ; i++)
+{
+for(int j = 0 ; j <= 2 ; j++ )
+{
+System.out.println(MatrixMul[i][j]);
+}
+System.out.println(" ");
+}
+}
+public static void main(String[] args)
+{
+MatrixMul obj = new MatrixMul();
+//obj.display();
+obj.MulMat();
+obj.MulDisplay();
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8. Write a program in java to create user defined exception which will allow user to perform bank transaction.
+1. if user try to withdraw amount > balance program must throw insufficient fund exception
+2. before withdraw or deposit user must enter pin, if pin is not valid then program must throw invalid pin exception
+3. user cannot deposit > Rs.200000 without pan details are not provided program must raise exception saying invalid transaction.
+--Program :
+
+import java.io.*;
+public class btrans
+{
+private int balance;
+{
+System.out.println("Enter the balance : ");
+}
+public UserDefinedException()
+{
+public int balance(50000)
+{
+return balance;
+}
+public void withdraw (int amount) throws InsufficientFundException
+{
+if(amount (60000) > balance)
+{
+throw new InsufficientFundException(String.format(current balance is less than requested amount,balance));
+}
+else
+{
+System.out.println("Please receive your cash");
+}
+balance=balance-amount;
+}
+public void withdraw(int pin)
+{
+int[] pin = nextInt.pin();
+System.out.println("Enter the Pin number : ");
+}
+if(pin!=0)
+{
+throw new IllegalArgumentException(String.format("InvalidPinException", pin));
+}
+else
+{
+System.out.println("your withdraw amount");
+}
+}
+public void deposit(int amount)
+{
+int amount=200000;
+int[] deposit = nextInt.deposit();
+System.out.println("Enter the deposit amount : ");
+}
+public void pandetails(int deposit)
+{
+int pan = A3DG57TYQ;
+int[]pan=nextInt.pan();
+System.out.println("Enter the pan card number : ");
+}
+if (deposit >200000)
+{
+throw new Exception(String.format("User cannot deposit", amount));
+}
+else
+{
+System.out.println("You can deposit your cash");
+}
+if(pandetails.equals>deposit)
+{
+throw new InvalidTransactionException(String.format("Pan details not provided", amount));
+}
+public static void main(String args[])
+{
+banktrans btrans = new banktrans();
+btrans.balance();
+btrans.deposit();
+btrans.withdraw();
+btrans.pandetails();
+}
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9. Write a menu driven program for calculator using java language. Menu details are mentioned as : Addition, Subtraction, Multiplication, Division, 
+     Percentage, Exit.
+--Program :
+
+import java.io.*;
+public class calculator
+{
+int result = 0;
+public int add(int num1, int num2)
+{
+result = num1+num2;
+return result;
+}
+public int sub(int num1, int num2)
+{
+result = num1-num2;
+return result;
+}
+public int mul(int num1, int num2)
+{
+result=num1*num2;
+return result;
+}
+public int div(int num1, int num2)
+{
+result=num1/num2;
+return result;
+}
+public int percent(int num1, int num2)
+{
+result=(num1+num2)/100;
+return result;
+}
+public static void main(String[] aa)
+{
+int num1,num2,result;
+num1=num2=result=0;
+int choice;
+Scanner sin = new Scanner(System.in);
+calculator cobj=new calculator();
+System.out.println("1.Addition");
+System.out.println("2.Subtraction");
+System.out.println("3.Multiplication");
+System.out.println("4.Division");
+System.out.println("5.Percentage");
+System.out.println("6.Exit");
+choice=sin.nextInt();
+switch(choice)
+{
+case1:
+result=cobj.add(num1,num2);
+}
+System.out.println("The result as per your choice", +result);
+}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10. Write a java program to accept a number of any digit and reverse the numbers : Ex : 6,5,4,3,2,1 to 1,2,3,4,5,6
+--Program :
+import java.util.Scanner;
+public class ReverseNum
+{
+public void revnum()
+{
+int num;
+int rev=0;
+int rem;
+Scanner sin=new Scanner(System.in);
+System.out.println("Enter the number");
+num = sin.nextInt();
+while(num!=0)
+{
+rem=num%10;
+rev=rev*10+rem;
+num=num/10;
+}
+System.out.println("the number after reversing",+rev);
+}
+public static void main(String[]aa)
+{
+ReverseNum rnobj=new Reversenum();
+rnobj.revnum();
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
