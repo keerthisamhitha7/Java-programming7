@@ -1,0 +1,42 @@
+1.Array List :
+	(1) The ArrayList class extends AbstractList and implements the List interface. 
+                   (2) ArrayList supports dynamic arrays that can grow as needed.
+	(3) The issue with arrays is that they are of fixed length so if it is full we cannot add any more elements to it.
+	(4) ArrayList can dynamically grow and shrink as per the need. 
+	(5) Apart from these benefits ArrayList class enables us to use predefined methods of it which makes our task easy. 
+
+2. Linked List :
+	(1) LinkedList is an implementation of List interface. 
+	(2) Java LinkedList class uses doubly linked list to store the elements. 
+	(3) It provides a linked-list data structure. It inherits the AbstractList class and implements List and Deque interfaces.
+	(4) Java LinkedList class can contain duplicate elements.
+	(5) It maintains insertion order and It can be used as list, stack or queue.
+
+3. Iterator :
+	(1) Iterator is used for iterating (looping) various collection classes such as HashMap, ArrayList, LinkedList, Tree set etc. 
+	(2) Java iterator is an interface belongs to collection framework.
+	(3) It allow us to traverse the collection and access the data element of collection.
+	(4) Basically List and set collection provides the iterator.
+
+4. List Iterator :
+	(1) ListIterator in Java is an Iterator which allows user to traverse Collection like ArrayList and HashSet. 
+	(2) It uses two methods such as previous() and next (). 
+	(3) You can obtain ListIterator from all List implementation including ArrayList and LinkedList. 
+	(4) ListIterator doesn’t keep current index and its current position is determined by call to next() or previous() 
+	      based on direction of traversing.
+
+5. ArrayList vs LinkedList :
+	ArrayList--
+	(1) ArrayList internally uses dynamic array to store the elements.
+	(2) Manipulation with ArrayList is slow because it internally uses array. 
+	      If any element is removed from the array, all the bits are shifted in memory.
+	(3) ArrayList class can act as a list only because it implements List only.
+	(4) ArrayList is better for storing and accessing data.
+
+	LinkedList--
+	(1) LinkedList internally uses doubly linked list to store the elements.
+	(2) Manipulation with LinkedList is faster than ArrayList because it uses doubly linked list 
+	      so no bit shifting is required in memory.
+	(3) LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+	(4) LinkedList is better for manipulating data.
+

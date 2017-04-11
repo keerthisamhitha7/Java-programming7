@@ -396,76 +396,128 @@ obj.MulDisplay();
 3. user cannot deposit > Rs.200000 without pan details are not provided program must raise exception saying invalid transaction.
 --Program :
 
-import java.io.*;
-public class btrans
+package userTransaction;
+
+public class userAmtException extends Exception 
 {
-private int balance;
+public userAmtException(String message)
 {
-System.out.println("Enter the balance : ");
+super (message);
+}	
 }
-public UserDefinedException()
+____________________________________________
+
+package AccountHandle;
+
+import java.util.Scanner;
+public class BankTransaction
 {
-public int balance(50000)
+public Scanner scanner;
+public int i=0;
+public int amount;
+public int Display()
 {
-return balance;
+System.out.println("What would you like to do?");
+System.out.println("1. --> Withdraw");
+System.out.println("2. --> Deposit");
+System.out.println("Please press 1 or 2");
+scanner = new Scanner(System.in);
+int selection = scanner.nextInt();
+return selection;
 }
-public void withdraw (int amount) throws InsufficientFundException
+public void Withdraw() throws Exception
 {
-if(amount (60000) > balance)
+System.out.println("Please enter your four Digit pin number:");
+try
 {
-throw new InsufficientFundException(String.format(current balance is less than requested amount,balance));
+int PIN = scanner.nextInt();
+checkPin(PIN);
 }
-else
+catch(Exception e)
 {
-System.out.println("Please receive your cash");
+System.out.println("Please check the PIN number you have typed.");
 }
-balance=balance-amount;
-}
-public void withdraw(int pin)
+System.out.println("Please enter the amount you wish to withdraw");
+amount = scanner.nextInt();
+if(amount<=76000)
 {
-int[] pin = nextInt.pin();
-System.out.println("Enter the Pin number : ");
-}
-if(pin!=0)
-{
-throw new IllegalArgumentException(String.format("InvalidPinException", pin));
-}
-else
-{
-System.out.println("your withdraw amount");
-}
-}
-public void deposit(int amount)
-{
-int amount=200000;
-int[] deposit = nextInt.deposit();
-System.out.println("Enter the deposit amount : ");
-}
-public void pandetails(int deposit)
-{
-int pan = A3DG57TYQ;
-int[]pan=nextInt.pan();
-System.out.println("Enter the pan card number : ");
-}
-if (deposit >200000)
-{
-throw new Exception(String.format("User cannot deposit", amount));
+System.out.println("Please collect your cash");
 }
 else
+{	
+throw new UserAmtException("Invalid entry");
+}			
+}	
+public void Deposit() throws Exception
 {
-System.out.println("You can deposit your cash");
+System.out.println("Please enter your four Digit pin number:");
+try
+{
+int PIN = scanner.nextInt();
+checkPin(PIN);
 }
-if(pandetails.equals>deposit)
+catch(Exception e)
 {
-throw new InvalidTransactionException(String.format("Pan details not provided", amount));
+System.out.println("Please check the PIN number you have typed.");
 }
-public static void main(String args[])
+System.out.println("Please enter the amount you wish to deposit");
+amount = scanner.nextInt();
+if(amount>200000)
 {
-banktrans btrans = new banktrans();
-btrans.balance();
-btrans.deposit();
-btrans.withdraw();
-btrans.pandetails();
+System.out.println("Please enter your pan card details");
+String PAN = scanner.next();
+//throw new UserAmtException("Transaction will be processed, only if the PAN number is valid");
+checkDatabase(PAN);
+}
+System.out.println("Please place your cash for deposit");
+}
+public void checkDatabase(String data) throws UserAmtException
+{
+if(data=="AQJKS3456A")
+{
+return;
+}
+else
+{	
+throw new UserAmtException("Invalid entry");
+}
+}
+public void checkPin(int code) throws Exception
+{
+try
+{	
+while(code!=0716)
+{	
+System.out.println("Please check the PIN number you have typed.");
+code = scanner.nextInt();
+i++;
+if(i==3)
+{	
+System.out.println("Your Account has been blocked temporarily.");
+System.exit(0);
+}
+}
+if(code==0716)
+{
+return;
+}
+}
+catch(Exception e)
+{	
+System.out.println("Please check the PIN number you have typed.");
+}
+}
+public static void main(String[] args) throws Exception 
+{
+BankTransaction object = new BankTransaction();
+int choice = object.Display();
+if(choice == 1)
+{
+object.Withdraw();
+}
+if(choice == 2)
+{
+object.Deposit();
 }
 }
 }
@@ -526,7 +578,65 @@ System.out.println("The result as per your choice", +result);
 }
 }
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-10. Write a java program to accept a number of any digit and reverse the numbers : Ex : 6,5,4,3,2,1 to 1,2,3,4,5,6
+10. Write a program in java to create user defined exception which will accept employee salary as input.
+1. if salary is less than 0 display the message that you are not eligible for loan.
+2. if salary is greater than 10000 display message that you are eligible for loan of 1000000.
+3. if salary is greater is greater than 50000 display message thay you are eligible for loan of 500000.
+4. if salary is greater than 100000 display message that you are eligible for loan of 1000000.
+--Program :
+
+package userDefinedException;
+
+public class exceptionnew extends Exception
+{
+public exceptionnew(String message)
+{
+super (message);
+}	
+}
+____________________________________________
+
+package userDefinedException;
+
+import java.io.*;
+public class LoanEligible 
+{	
+static InputStreamReader is = new InputStreamReader(System.in);
+static BufferedReader br = new BufferedReader(is);	
+public static int salary;
+public static int Display() throws Exception
+{		
+System.out.println("Enter your salary");
+salary = Integer.parseInt(br.readLine());
+return salary; 
+}	
+public static void validAge(int salary) throws exceptionnew
+{	
+if(salary >= 10000)
+{
+throw new exceptionnew("eligible for a loan of 1 lakh");
+}
+else if(salary >= 50000)
+{
+throw new exceptionnew("eligible for a loan of 5 lakhs");
+}
+else if(salary >= 100000)
+{
+throw new exceptionnew("eligible for a loan of 10 lakhs");
+}
+if(salary<10000)
+{	
+throw new exceptionnew("not eligible for loan");
+}
+}	
+public static void main(String[] args) throws Exception
+{
+Display();
+validAge(salary);
+}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11. Write a java program to accept a number of any digit and reverse the numbers : Ex : 6,5,4,3,2,1 to 1,2,3,4,5,6
 --Program :
 import java.util.Scanner;
 public class ReverseNum
@@ -555,15 +665,3 @@ rnobj.revnum();
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
- 
-
-
-
-
-
-
-
-
- 
